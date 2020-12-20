@@ -53,7 +53,10 @@ public class DiesEntreDates_Adan_Inarejos extends CalcularDiesEntreDates {
     //numDiesPerAnydeTraspas devuelve los años extra de cada año bisiesto que haya entre las dos fechas.
     @Override
     protected int numDiesPerAnysdeTraspas(DataXS datainicial, DataXS datadesti) {
-        for (int i = 0; i <=((datadesti.any-datainicial.any)-1) ; i++) {
+        if (datainicial.mes<3){
+            numDiasAñoBisiesto++;
+        }
+        for (int i = 0; i <((datadesti.any-datainicial.any)-1) ; i++) {
             if (anyDeTraspas(datainicial.any + i)) {
                 numDiasAñoBisiesto++;
             }
